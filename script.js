@@ -1,11 +1,15 @@
+
 // Chat elements
 const chatBox = document.getElementById('chatBox');
 const userInput = document.getElementById('userInput');
 const sendBtn = document.getElementById('sendBtn');
 const imageInput = document.getElementById('imageInput');
 
+// Your big botReplies object here...
 const botReplies = {
-   "Hi": ["Hi! Kaso aasay bhai 😄", "Hello! Kay mhantoy 🤗", "Hi there! Changala aahes ka 😎", "Ky baki mhanty 😎"],
+  "Hi": ["Hi! Kaso aasay bhai 😄", "Hello! Kay mhantoy 🤗"],
+  "Hello": ["Hello! Kaso aahes 😄", "Hello! Masto aahes ka 😃"],
+  "Hi": ["Hi! Kaso aasay bhai 😄", "Hello! Kay mhantoy 🤗", "Hi there! Changala aahes ka 😎", "Ky baki mhanty 😎"],
    "Hello": ["Hello! Kaso aahes 😄", "Hello! Masto aahes ka 😃"],
    "Bye": ["Chal tr! Pudhe boluya 👋", "Bye! Pure zala chal tr 😅"],
    "Tu sang": ["Me ky saangu baba tuch snag ky ta😅", "Baro aasy ky mhanty"],
@@ -244,129 +248,51 @@ const botReplies = {
 "vala": ["Hoi re bhau, vala mast", "Ny re, vala barobar ahe", "Tu vala bagh", "Bhau, vala suru kar", "Masta bhau, vala mast"],
 "jamala": ["Hoi re bhau, jamala mast", "Ny re, jamala barobar ahe", "Tu jamala bagh", "Bhau, jamala suru kar", "Masta bhau, jamala mast"],
 "didit": ["Hoi re bhau, ho zala", "Ny re, ho barobar ahe", "Tu bagh zala ka", "Bhau, ho suru kar", "Masta bhau, ho zala"],
-
-
 };
 
-
-const botRepliesLower = {};
-for (let key in botReplies) {
-    botRepliesLower[key.toLowerCase()] = botReplies[key];
+// Function to add messages in chat
+function addMessage(sender, text) {
+  const msg = document.createElement('div');
+  msg.className = sender === "user" ? "message user-message" : "message bot-message";
+  msg.innerText = text;
+  chatBox.appendChild(msg);
+  chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Event listeners
-sendBtn.addEventListener('click', sendMessage);
-userInput.addEventListener('keypress', (e) => { if(e.key==='Enter') sendMessage(); });
-imageInput.addEventListener('change', sendImage);
 
-// Send user message
-function sendMessage() {
-    const message = userInput.value.trim();
-    if(!message) return;
-    displayMessage(message, 'user-message');
+// Function to get bot reply
+function getBotReply(userText) {
+  const text = userText.trim().toLowerCase();
 
-    const key = message.toLowerCase();
-
-    // Find all keys that match or include the message
-    const matchedKeys = Object.keys(botRepliesLower).filter(k => k.includes(key));
-
-    let response;
-    if(matchedKeys.length === 0) {
-        response = "ky baba lihity ky ta barobar li samaja sarkhya😅";
-    } else {
-        // Pick a random key if multiple match
-        const randomKey = matchedKeys[Math.floor(Math.random() * matchedKeys.length)];
-        const options = botRepliesLower[randomKey];
-        response = options[Math.floor(Math.random() * options.length)];
-    }
-
-    setTimeout(() => {
-        displayMessage(response, 'bot-message');
-    }, 500);
-
-    userInput.value = "";
-}
-
-// Send image
-function sendImage() {
-    const file = imageInput.files[0];
-    if(!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        const img = new Image();
-        img.src = e.target.result;
-
-        img.onload = function() {
-            const info = `📷 Name: ${file.name}, Size: ${(file.size/1024).toFixed(2)} KB, Dimensions: ${img.width}x${img.height}`;
-            displayMessage(img, 'user-message', true);
-            displayMessage(info, 'user-message');
-
-            setTimeout(() => {
-                displayMessage("Wah Mast photo asa pn ky hya maka baba samjana 😍", 'bot-message');
-            }, 500);
-        }
-    }
-    reader.readAsDataURL(file);
-    imageInput.value = "";
-}
-
-// Display message function
-function displayMessage(msg, className, isImage=false) {
-    const msgDiv = document.createElement('div');
-    msgDiv.classList.add('message', className);
-
-    if(isImage) msgDiv.appendChild(msg);
-    else msgDiv.textContent = msg;
-
-    const timeSpan = document.createElement('div');
-    timeSpan.classList.add('timestamp');
-    const now = new Date();
-    timeSpan.textContent = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
-    msgDiv.appendChild(timeSpan);
-
-    chatBox.appendChild(msgDiv);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-function cleanInput(text) {
-  return text.trim().toLowerCase();
-}
-
-// Get bot reply (one-word matching logic)
-function getBotReply(userMsg) {
-  const msg = cleanInput(userMsg);
-
-  // Split user message into words
-  const words = msg.split(/\s+/);
-
-  // Check each word against botReplies keys
-  for (let word of words) {
-    if (botReplies[word]) {
-      let replies = botReplies[word];
+  // Try to find matching key
+  for (let key in botReplies) {
+    if (text === key.toLowerCase()) {
+      const replies = botReplies[key];
       return replies[Math.floor(Math.random() * replies.length)];
     }
   }
 
-
-  return " Typing karuk shiik Samajhak nay maka ,  neat sang kay!";
+  // If no match found
+  return "Kay mhantoy bhau? 🤔";
 }
 
+// Send message
+function sendMessage() {
+  const text = userInput.value;
+  if (!text) return;
 
-sendBtn.addEventListener("click", () => {
-  const userMsg = userInput.value;
-  if (!userMsg) return;
-
-  let userDiv = document.createElement("div");
-  userDiv.classList.add("userMsg");
-  userDiv.innerText = userMsg;
-  chatBox.appendChild(userDiv);
-
- 
-  let botDiv = document.createElement("div");
-  botDiv.classList.add("botMsg");
-  botDiv.innerText = getBotReply(userMsg);
-  chatBox.appendChild(botDiv);
-
+  addMessage("user", text);
   userInput.value = "";
-  chatBox.scrollTop = chatBox.scrollHeight;
+
+  setTimeout(() => {
+    const reply = getBotReply(text);
+    addMessage("bot", reply);
+  }, 500);
+}
+
+// Event listeners
+sendBtn.addEventListener("click", sendMessage);
+userInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendMessage();
 });
+
