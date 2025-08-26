@@ -7,247 +7,540 @@ const imageInput = document.getElementById('imageInput');
 
 // Your big botReplies object here...
 const botReplies = {
-  "Hi": ["Hi! Kaso aasay bhai 😄", "Hello! Kay mhantoy 🤗"],
-  "Hello": ["Hello! Kaso aahes 😄", "Hello! Masto aahes ka 😃"],
-  "Hi": ["Hi! Kaso aasay bhai 😄", "Hello! Kay mhantoy 🤗", "Hi there! Changala aahes ka 😎", "Ky baki mhanty 😎"],
-   "Hello": ["Hello! Kaso aahes 😄", "Hello! Masto aahes ka 😃"],
-   "Bye": ["Chal tr! Pudhe boluya 👋", "Bye! Pure zala chal tr 😅"],
-   "Tu sang": ["Me ky saangu baba tuch snag ky ta😅", "Baro aasy ky mhanty"],
-   "Ky mhanty": ["Aassy jito tiyach sang ky ta sang", "Ky mhantaly baba"],
-   "Kaso assay": ["Ky saangu baba", "Baro aasy ky mhanty"],
-   "Sang ky tari": ["Melo hyo mazya patsunach laglo", "Baro ma tu"],
-   "Baro ma": ["Aasy jito khup zala baro ky hoyo 👋", "Hoi re bab😅"],
-   "Zala ka": ["Zalo re bhau tuch kasa", "Hoi zale mhantat", "Pura zale bhau", "Khoop zale mhanto", "Ho re tuka kay"],
-   "Kuthay ahes": ["Mi ghari asaay re", "Ya bazarat asaay mi", "Office madhye ata", "Gaonat jhalo bhau", "Ghari baslo net vaparta"],
-   "Kay kartoy": ["Aisach baslo re", "Mobail vaparta 😅", "Net surfing karto", "Ghari relax karto", "Kuthecha special na asaach"],
-   "Khoop divas zale": ["Hoi re khoop divas zale bhetlo na", "Ya na bhau meeting kara ek", "Khara mhanty time nighalaach na", "Mala pan vatla tuka sangava", "Bhetuchya planning kara"],
-   "Khau kay": ["Vadapav khaun zale 😋", "Misal pav mast hoti", "Chaha baslo ata", "Fish curry rice khata", "Shebachi poli khata"],
-   "Pahila ka": ["Hoi re pahilo ata", "Nako re ajun pahilo na", "Pahinyacha plan ahe", "Ajun kay tari baki ahe", "Mi pahilo re kal"],
-   "Ghar kay zala": ["Gharat sarva mast ahet", "Barobar mhanty kuthech problem na", "Aai-baba chan ahet", "Bai khup mast mood madhe", "Gharacha vatavaran chan ahe"],
-   "Vale": ["Vale bhau 👋", "Chala pudhe boluya", "Mala ata nighaycha", "Bye re mhantat", "Mi off karto vale"],
-   "Bhetuya": ["Ya na kal paryant", "Thik ahe udya bhetuya", "Bhetuchya planning kara", "Kiti divas zale bhetuya re", "Mala pan vatla bhetaych"],
-   "Thik ahe": ["Mast re thik ahe", "Barobar mhanty", "Mala pan thik vatata", "Chan mood ahe ata", "Ho re thik ahe"],
-   "Sang na": ["Kai special sangaych ka", "Mhant mhant mhant sang", "Kay secret aahe ka", "Me aiku re sang", "Jaldi sang re"],
-   "Kitem zata": ["Kai khas na asaach", "Aisach timepass", "Kaam hota thoda", "Mala tar relax vatata", "Mala boredom vatata"],
-   "Oy": ["Oy bhau Kay mhantoy", "Oy re kasa aahes", "Oy mhanto mhanto kiti vela", "Oy chal bhetuya", "Oy kay zala"],
-   "Kay zala": ["Kai nahi re asaach", "Aisach tension", "Jhakaas vatata", "Kay tari problem ahe", "Barobar jhalay"],
-   "Chal na": ["Ya re plan karuya", "Kiti divas zale ya na", "Chal bhetuya bazarat", "Mala pan yavyach vatata", "Chal re movie la jau"],
-   "Maka jamna": ["Jamta re bhau", "Mala jamna khoop chan vatata", "Jamaych plan kara", "Jamlo tar mast hoil", "Jamayla maza yeil"],
-   "Udya ky tr": ["Udya bhetuya re", "Udya call karu", "Udya jamu ka", "Udya special ahe", "Udya sangto"],
-   "Jamla ma": ["jamla re mast", "jamla bhau", "jamla barobar", "jamayla maja aali", "jamlo tari mast"],
-   "Mala vatla": ["mala tari asa vatla", "mala vatla tuka sangaych", "mala vatla ki tu sangto", "mala vatla khara mhanty", "mala vatla bhau"],
-   "Kuthe": ["kuthe gelo re", "kuthe ahes tu", "kuthe bhettoy", "kuthe zala hotas", "kuthe plan kartoy"],
-   "Masta": ["masta re bhau", "mala mast vatata", "masta ahe situation", "masta plan vatata", "masta mood ahe"],
-   "Khoop chan": ["hoi re khup chan ahe", "chan vatata bhau", "khoop chan mhanto tu", "mala pan chan vatata", "chan khup jhalay"],
-   "Ha": ["ha re barobar", "ha mhanto tu", "ha mhantla re", "ho ho barobar", "ha ahe"],
-   "Nai": ["nai re mhanto", "nai mhanto mi", "nai tari barobar", "nai mhantat sagle", "nai nai asa kay"],
-   "Yes": ["yes bhau", "yes re barobar", "yes mhanto", "yes mhantla mi", "yes barobar"],
-   "No": ["no re mhanto", "no mhantla mi", "no nai barobar", "no mhantat sagle", "no mhanto mi"],
-   "Acha kay": ["acha kay mhanto tu", "acha kay vatla", "acha kay mhantat", "acha kay re", "acha kay jhala"],
-   "Thoda": ["thoda jhala re", "thoda kam urla", "thoda thamb", "thoda jamaycha ahe", "thoda relax karto"],
-   "Mala na": ["mala na asa vatla", "mala na kay tari mhanaych", "mala na sangaych hota", "mala na jamtoy", "mala na bhau"],
-   "Aaj": ["Aaj khup maja aali", "Aaj movie baghtoy", "Aaj special ahe", "Aaj jamaycha plan", "Aaj ghari baslo"],
-   "Udya": ["Udya jamayla", "Udya bhetuya", "Udya plan ahe", "Udya mast hoil", "Udya sangto"],
-   "Bas": ["Bas re bhau", "Bas mhanto", "Bas ata kay", "Bas jhalay", "Bas thoda"],
-   "Chala": ["Chala re jamuya", "Chala movie la", "Chala ghari", "Chala khayla", "Chala bazarat"],
-   "Jamaya": ["Jamaycha plan kara", "Jamaycha hota", "Jamaycha urla", "Jamaycha mast vatata", "Jamaycha khoop"],
-   "Karu": ["Karu re bhau", "Karu na plan", "Karu movie baghu", "Karu bhet", "Karu ka game"],
-   "Kar": ["Kar re ata", "Kar mhantla mi", "Kar mhanto tu", "Kar barobar", "Kar jamtoy"],
-   "Mala": ["Mala tari baro vatata", "Mala asa vatla", "Mala maja aali", "Mala tension ahe", "Mala khau pahije"],
-   "Tula": ["Tula asa vatata ka", "Tula jamtoy ka", "Tula maja aali ka", "Tula baro vatata ka", "Tula khau pahije ka"],
-   "Tu": ["Tu kasa ahes", "Tu kay mhantoy", "Tu kuthe ahes", "Tu bhettoy ka", "Tu kay karto"],
-   "Mi": ["Mi baro asaay", "Mi asa vatato", "Mi asa karto", "Mi asa mhanto", "Mi game kheltoy"],
-   "Apan": ["Apan jamuya", "Apan movie baghu", "Apan game khelaya", "Apan ghari basu", "Apan bazarat jau"],
-   "Sagle": ["Sagle baro ahet", "Sagle jamtoy", "Sagle mast hota", "Sagle barobar", "Sagle maja kartoy"],
-   "Kon": ["Kon hota to", "Kon mhantla", "Kon jhala re", "Kon bhettoy", "Kon barobar hota"],
-   "Kuthlya": ["Kuthla plan", "Kuthla game", "Kuthla movie", "Kuthla khau", "Kuthla mood"],
-   "Kay": ["Kay re bhau", "Kay mhanto tu", "Kay jhala", "Kay zala re", "Kay vatata"],
-   "Acha re": ["Acha re bhau", "Acha re barobar", "Acha re mhanty", "Acha re vatata", "Acha re jhala"],
-   "Ho": ["Ho re bhau", "Ho mhanto mi", "Ho barobar", "Ho ho mast", "Ho jhala"],
-   "Are": ["Are bhau", "Are mast vatata", "Are barobar", "Are kay re", "Are mhanty"],
-   "Oii": ["Oy re bhau", "Oy re kay mhanty", "Oy re mast", "Oy re barobar", "Oy re vatata"],
-   "Vala": ["Vala re bhau", "Vala mhanto", "Vala barobar", "Vala vatata", "Vala mast"],
-   "Jamala": ["Jamala re mast", "Jamala hota", "Jamala barobar", "Jamala vatata", "Jamala jhala"],
-   "Did it happen yet": ["Ajun zala nahi", "Ajun kay tari baki", "Ajun jamtoy", "Ajun bhetlo nahi", "Ajun chaltoy"],
-   "Did you eat yesterday": ["Hoi baba jeyly", "Nahi re", "Kal movie baghitle", "Kal mast hota", "Kal special hota"],
-   "Did you enjoy today": ["Aaj khup maja aali", "Aaj special ahe", "Aaj jamaycha plan", "Aaj movie baghtoy", "Aaj ghari baslo"],
-   "Shall we meet tomorrow": ["Udya jamacha nai", "Udya bhetuya", "Udya plan ahe", "Udya mast hoil", "Udya sangto"],
-   "Should we stop now": ["Bas re bhau", "Bas mhanto", "Bas ata kay", "Bas jhalay", "Bas thoda"],
-   "Shall we go": ["Chala re jamuya", "Chala movie la", "Chala ghari", "Chala khayla", "Chala bazarat"],
-   "Shall we plan to party": ["Jamaycha plan kara", "Jamaycha hota", "Jamaycha urla", "Jamaycha mast vatata", "Jamaycha khoop"],
-   "Shall we do it": ["Karu re bhau", "Karu na plan", "Karu movie baghu", "Karu bhet", "Karu ka game"],
-   "Do it now": ["Kar re ata", "Kar mhantla mi", "Kar mhanto tu", "Kar barobar", "Kar jamtoy"],
-   "How do I feel": ["Mala tari baro vatata", "Mala asa vatla", "Mala maja aali", "Mala tension ahe", "Mala khau pahije"],
-   "Ganpatik ye re": ["Me kaso yev baba me bot", "Ky maskari kartoy me kaso yev me manus thodi asy", "Bhari vatata sangly ta"],
-   "Kay lavdya": ["Gali detos madharchod"],
-   "Lavdya": ["Gali detos madharchod"],
-   "Bc": ["Gali detos bhikarchota"],
-   "Mc": ["Gali detos madharchod"],
-   "Maybe": ["कदाचित", "कदाचित आहे", "कदाचित होईल"],
-   "Please": ["कृपया", "कृपया करा", "कृपया मला मदत करा"],
-   "Sorry": ["माझं खूप वाईट वाटतं", "माझ्या चुकीसाठी माफी मागतो", "मला खूप वाईट वाटलं"],
-   "Excuse me": ["माझं लक्ष द्या", "सॉरी लक्ष विचलित केलं", "मला थोडा वेळ द्या"],
-   "How old are you": ["मी एक कृत्रिम बुद्धिमत्ता आहे वय नाही", "मी चॅटबोट आहे वय नाही", "माझं वय मोजता येत नाही"],
-   "What can you do": ["मी तुमच्याशी संवाद साधू शकतो", "मी माहिती देऊ शकतो", "मी प्रश्नांची उत्तरे देऊ शकतो"],
-   "Do you speak Marathi": ["हो मी मराठीत बोलू शकतो", "हो मी मराठीत संवाद साधतो", "हो मी मराठीत बोलतो"],
-   "Do you speak English": ["Yes I can speak English", "Yes I speak English fluently", "Yes I can chat in English"],
-   "Do you speak Gawthi": ["हो मी गवठी भाषेत बोलू शकतो", "हो मी गवठी बोलतो", "हो मी गवठी संवाद साधतो"],
-   "Do you speak Malvani": ["हो मी मालवणी भाषेत बोलू शकतो", "हो मी मालवणी बोलतो", "हो मी मालवणी संवाद साधतो"],
-   "Whats your favorite color": ["माझं आवडतं रंग निळा आहे", "माझं आवडतं रंग लाल आहे", "माझं आवडतं रंग हिरवा आहे"],
-   "Whats your favorite food": ["माझं आवडतं अन्न पिझ्झा आहे", "माझं आवडतं अन्न वडापाव आहे", "माझं आवडतं अन्न मिसळपाव आहे"],
-   "Whats your favorite movie": ["माझं आवडतं चित्रपट शोले आहे", "माझं आवडतं चित्रपट थ्री इडियट्स आहे", "माझं आवडतं चित्रपट लगान आहे"],
-   "Whats your favorite song": ["माझं आवडतं गाणं तुम ही हो आहे", "माझं आवडतं गाणं काळा चष्मा आहे", "माझं आवडतं गाणं छाया छाया आहे"],
-   "Whats your favorite book": ["माझं आवडतं पुस्तक शिवाजी महाराज आहे", "माझं आवडतं पुस्तक श्रीमंत योगी आहे", "माझं आवडतं पुस्तक पांडवांची कथा आहे"],
-   "Whats your favorite place": ["माझं आवडतं ठिकाण पुणे आहे", "माझं आवडतं ठिकाण रायगड आहे", "माझं आवडतं ठिकाण गोवा आहे"],
-   "Whats your favorite animal": ["माझं आवडतं प्राणी कुत्रा आहे", "माझं आवडतं प्राणी सिंह आहे", "माझं आवडतं प्राणी माकड आहे"],
-   "Whats your favorite sport": ["माझं आवडतं खेळ क्रिकेट आहे", "माझं आवडतं खेळ कबड्डी आहे", "माझं आवडतं खेळ फुटबॉल आहे"],
-   "Whats your favorite hobby": ["माझं आवडतं छंद वाचन आहे", "माझं आवडतं छंद गाणं ऐकणं आहे", "माझं आवडतं छंद छायाचित्रण आहे"],
-   "Whats your favorite season": ["माझं आवडतं ऋतू पावसाळा आहे", "माझं आवडतं ऋतू उन्हाळा आहे", "माझं आवडतं ऋतू हिवाळा आहे"],
-   "Whats your favorite festival": ["माझं आवडतं सण दिवाळी आहे", "माझं आवडतं सण होळी आहे", "माझं आवडतं सण गुढीपाडवा आहे"],
-   "Whats your favorite holiday": ["माझं आवडतं सुट्टी नवीन वर्ष आहे", "माझं आवडतं सुट्टी गणेशोत्सव आहे", "माझं आवडतं सुट्टी छत्रपती शिवाजी जयंती आहे"],
-   "Whats your favorite drink": ["माझं आवडतं पेय चहा आहे", "माझं आवडतं पेय कोल्ड ड्रिंक आहे", "माझं आवडतं पेय लस्सी आहे"],
-    "mala khanyasathi dya": ["Dya re bhau, khaycha ahe 😋", "Ho ho, dya mala pan", "Bas thoda thamb, dya ata", "Khau ka re bhau? 🍴", "Mala pan dya thoda"],
-    "mala pani dya": ["Pani dya re bhau 💧", "Ho re, dya ata", "Thoda thamb, ata dya", "Mala pan dya pan", "Pani aahe ka re?"],
-    "mala paise dya": ["Paisa dya re bhau 💸", "Thoda paisa dya ata", "Ho ho, dya pan", "Mala pan dya thoda", "Bas re, paisa dya"],
-    "mala phone dya": ["Phone dya re bhau 📱", "Ho ho, ata dya", "Thoda thamb, dya ata", "Mala pan dya thoda", "Phone ghetla ka? Dya re"],
-    "mala vel dya": ["Time dya re bhau ⏰", "Ho ho, dya mala pan", "Ata dya thoda time", "Mala pan dya thoda", "Bas re, time dya"],
-    "what are you doing": ["Bas bas relax 😎", "Mobail var gaming 😅", "Chaha piyat ahe ☕", "Net surfing karto 😎", "Gharat kaam karto re", "Kaam kartoy re bhau (Malvani)", "Bhagya re, kaay karat ahes? (Gawthi)"],
-    "where are you": ["Gharat re bhau 🏠", "Bazarat thoda vhey ahe 😅", "Office madhye busy 😎", "Gaonat phirta ahe", "Cafe madhye baslo re", "Hau re gharat (Malvani)", "Bazarat aahes ka? (Gawthi)"],
-    "did you eat": ["Ho khau khaayla 😋", "Nahi re, ajun nahi 🍴", "Vadapav khala re 😅", "Misal pav mast hoti", "Chaha baslo ata ☕", "Khau zalay ka? (Malvani)", "Aaj jeylo ka? (Gawthi)"],
-    "are you free": ["Ho re bhau, free ahe 😎", "Ajun busy thoda", "Nahi re, kaam chaltoy", "Chala bhetuya tar 😄", "Ho mast free ahe", "Free aahes ka? (Malvani)", "Bhagya re, time aahes ka? (Gawthi)"],
-    "let's meet": ["Chala bhetuya 😎", "Ho re, kuthe bhetaycha?", "Udya bhetuya tar ?", "Bazarat milu ka 😅", "Mi ready ahe 😎", "Bhetuya re (Malvani)", "Chal bhetuya ka? (Gawthi)"],
-    "how was your day": ["Mast re bhau 😄", "Khoop chan ghalay", "Thoda busy hota", "Relax pan zala", "Barobar day re 😎", "Day mast ghalay (Malvani)", "Tuzha din kase ghalay? (Gawthi)"],
-    "want to play": ["Kheluya tar 😎", "Ho re, game suru karu", "Ajun thoda relax", "Masta mood ahe khelayla 😄", "Mi ready ahe bhau", "Kheluya re (Malvani)", "Aaj game khelu ka? (Gawthi)"],
-    "what's new": ["Navi kai nahi re 😅", "Bas mast ahe sagle", "Kaam hota thoda", "Ny re bhau, sagle barobar", "Chala re, update sang 😎", "Kai navi ghalay? (Malvani)", "Kya nava? (Gawthi)"],
-    "how are you": ["Baro re bhau 😎", "Thik ahe re 😄", "I am good 😃", "Hoi re, kasa aahes? (Malvani)", "Bhagya re, kasa aahes? (Gawthi)"],
-    "what's up": ["Ky re bhau 😅", "Nothing much 😎", "Bas chill kartoy 😄", "Hoi re, kay chalay? (Malvani)", "Ny re, kay zala? (Gawthi)"],
-    "khau ka": ["Hoi re bhau, khau khalli ka?", "Ny re, khau khalli ka?", "Masta ka bhau, khau khalli ka?", "Tu khau khalli ka? 😋", "Bhau, khau khalli ka?"],
-    "pani piya ka": ["Hoi re, pani piya ka?", "Ny re, thanda pani piya ka?", "Bhau, pani piya ka?", "Tu pani piya ka?", "Masta bhau, pani piya ka?"],
-    "bhaji khalli ka": ["Hoi re, bhaji khalli ka?", "Ny re, bhaji khalli ka?", "Tu bhaji khalli ka?", "Bhau, bhaji mast ahe, khalli ka?", "Masta bhau, bhaji khalli ka?"],
-    "misal khalli ka": ["Hoi re, misal khalli ka?", "Ny re bhau, misal mast ahe, khalli ka?", "Tu misal khalli ka?", "Masta bhau, misal khalli ka?", "Bhau, misal khalli ka?"],
-    "vadapav khalli ka": ["Hoi re bhau, vadapav khalli ka?", "Ny re, vadapav mast ahe, khalli ka?", "Tu vadapav khalli ka?", "Masta bhau, vadapav khalli ka?", "Bhau, vadapav khalli ka?"],
-    "cha piya ka": ["Hoi re bhau, cha piya ka?", "Ny re, cha mast ahe, piya ka?", "Tu cha piya ka?", "Bhau, cha piya ka?", "Masta bhau, cha piya ka?"],
-    "milk piya ka": ["Hoi re bhau, milk piya ka?", "Ny re, milk mast ahe, piya ka?", "Tu milk piya ka?", "Bhau, milk piya ka?", "Masta bhau, milk piya ka?"],
-    "bread khalli ka": ["Hoi re bhau, bread khalli ka?", "Ny re, bread fresh ahe, khalli ka?", "Tu bread khalli ka?", "Bhau, bread khalli ka?", "Masta bhau, bread khalli ka?"],
-    "rice khalli ka": ["Hoi re bhau, bhat khalli ka?", "Ny re, rice mast ahe, khalli ka?", "Tu bhat khalli ka?", "Bhau, bhat khalli ka?", "Masta bhau, bhat khalli ka?"],
-    "dal khalli ka": ["Hoi re bhau, dal khalli ka?", "Ny re, dal garam ahe, khalli ka?", "Tu dal khalli ka?", "Bhau, dal khalli ka?", "Masta bhau, dal khalli ka?"],
-    "egg khalli ka": ["Hoi re bhau, anda khalli ka?", "Ny re, egg mast ahe, khalli ka?", "Tu egg khalli ka?", "Bhau, anda khalli ka?", "Masta bhau, anda khalli ka?"],
-    "fish khalli ka": ["Hoi re bhau, fish khalli ka?", "Ny re, fish fresh ahe, khalli ka?", "Tu fish khalli ka?", "Bhau, fish khalli ka?", "Masta bhau, fish khalli ka?"],
-    "chicken khalli ka": ["Hoi re bhau, chicken khalli ka?", "Ny re, chicken mast ahe, khalli ka?", "Tu chicken khalli ka?", "Bhau, chicken khalli ka?", "Masta bhau, chicken khalli ka?"],
-    "samosa khalli ka": ["Hoi re bhau, samosa khalli ka?", "Ny re, samosa garam ahe, khalli ka?", "Tu samosa khalli ka?", "Bhau, samosa khalli ka?", "Masta bhau, samosa khalli ka?"],
-    "jalebi khalli ka": ["Hoi re bhau, jalebi khalli ka?", "Ny re, jalebi mast ahe, khalli ka?", "Tu jalebi khalli ka?", "Bhau, jalebi khalli ka?", "Masta bhau, jalebi khalli ka?"],
-    "ladoos khalli ka": ["Hoi re bhau, ladoo khalli ka?", "Ny re, ladoo mast ahe, khalli ka?", "Tu ladoo khalli ka?", "Bhau, ladoo khalli ka?", "Masta bhau, ladoo khalli ka?"],
-    "banana khalli ka": ["Hoi re bhau, kele khalli ka?", "Ny re, banana fresh ahe, khalli ka?", "Tu kele khalli ka?", "Bhau, kele khalli ka?", "Masta bhau, banana khalli ka?"],
-    "mango khalli ka": ["Hoi re bhau, mango khalli ka?", "Ny re, mango mast ahe, khalli ka?", "Tu mango khalli ka?", "Bhau, mango khalli ka?", "Masta bhau, mango khalli ka?"],
-    "apple khalli ka": ["Hoi re bhau, apple khalli ka?", "Ny re, apple fresh ahe, khalli ka?", "Tu apple khalli ka?", "Bhau, apple khalli ka?", "Masta bhau, apple khalli ka?"],
-    "puri khalli ka": ["Hoi re bhau, puri khalli ka?", "Ny re, puri garam ahe, khalli ka?", "Tu puri khalli ka?", "Bhau, puri khalli ka?", "Masta bhau, puri khalli ka?"],
-    "poha khalli ka": ["Hoi re bhau, poha khalli ka?", "Ny re, poha mast ahe, khalli ka?", "Tu poha khalli ka?", "Bhau, poha khalli ka?", "Masta bhau, poha khalli ka?"],
-    "upma khalli ka": ["Hoi re bhau, upma khalli ka?", "Ny re, upma ready ahe, khalli ka?", "Tu upma khalli ka?", "Bhau, upma khalli ka?", "Masta bhau, upma khalli ka?"],
-    "idli khalli ka": ["Hoi re bhau, idli khalli ka?", "Ny re, idli garam ahe, khalli ka?", "Tu idli khalli ka?", "Bhau, idli khalli ka?", "Masta bhau, idli khalli ka?"],
-    "vada khalli ka": ["Hoi re bhau, vada khalli ka?", "Ny re, vada ready ahe, khalli ka?", "Tu vada khalli ka?", "Bhau, vada khalli ka?", "Masta bhau, vada khalli ka?"],
-    "dosa khalli ka": ["Hoi re bhau, dosa khalli ka?", "Ny re, dosa garam ahe, khalli ka?", "Tu dosa khalli ka?", "Bhau, dosa khalli ka?", "Masta bhau, dosa khalli ka?"],
-    "sambar khalli ka": ["Hoi re bhau, sambar khalli ka?", "Ny re, sambar ready ahe, khalli ka?", "Tu sambar khalli ka?", "Bhau, sambar khalli ka?", "Masta bhau, sambar khalli ka?"],
-    "curry khalli ka": ["Hoi re bhau, curry khalli ka?", "Ny re, curry mast ahe, khalli ka?", "Tu curry khalli ka?", "Bhau, curry khalli ka?", "Masta bhau, curry khalli ka?"],
-    "kheer khalli ka": ["Hoi re bhau, kheer khalli ka?", "Ny re, kheer ready ahe, khalli ka?", "Tu kheer khalli ka?", "Bhau, kheer khalli ka?", "Masta bhau, kheer khalli ka?"],
-    "puranpoli khalli ka": ["Hoi re bhau, puranpoli khalli ka?", "Ny re, puranpoli mast ahe, khalli ka?", "Tu puranpoli khalli ka?", "Bhau, puranpoli khalli ka?", "Masta bhau, puranpoli khalli ka?"],
-    "icecream khalli ka": ["Hoi re bhau, icecream khalli ka?", "Ny re, icecream ready ahe, khalli ka?", "Tu icecream khalli ka?", "Bhau, icecream khalli ka?", "Masta bhau, icecream khalli ka?"],
-    "cake khalli ka": ["Hoi re bhau, cake khalli ka?", "Ny re, cake mast ahe, khalli ka?", "Tu cake khalli ka?", "Bhau, cake khalli ka?", "Masta bhau, cake khalli ka?"],
-    "chocolate khalli ka": ["Hoi re bhau, chocolate khalli ka?", "Ny re, chocolate ready ahe, khalli ka?", "Tu chocolate khalli ka?", "Bhau, chocolate khalli ka?", "Masta bhau, chocolate khalli ka?"],
-    "cookies khalli ka": ["Hoi re bhau, cookies khalli ka?", "Ny re, cookies mast ahet, khalli ka?", "Tu cookies khalli ka?", "Bhau, cookies khalli ka?", "Masta bhau, cookies khalli ka?"],
-     "khau": ["Hoi re bhau, khau ghalay ka", "Ny re, khau mast ahe", "Tu khau ghalay ka 😋", "Bhau, khau ghalay ka", "Masta bhau, khau ghalay ka"],
-"pani": ["Hoi re, pani pilo ka", "Ny re, thanda pani ahe", "Bhau, pani pilo ka", "Tu pani pilo ka", "Masta bhau, pani pilo ka"],
-"bhaji": ["Hoi re, bhaji ghalay ka", "Ny re, bhaji mast ahe", "Tu bhaji ghalay ka", "Bhau, bhaji ghalay ka", "Masta bhau, bhaji ghalay ka"],
-"misal": ["Hoi re, misal ghalay ka", "Ny re bhau, misal mast ahe", "Tu misal ghalay ka", "Bhau, misal ghalay ka", "Masta bhau, misal ghalay ka"],
-"vadapav": ["Hoi re bhau, vadapav ghalay ka", "Ny re, vadapav mast ahe", "Tu vadapav ghalay ka", "Bhau, vadapav ghalay ka", "Masta bhau, vadapav ghalay ka"],
-"cha": ["Hoi re bhau, cha pilo ka", "Ny re, cha garam ahe", "Tu cha pilo ka", "Bhau, cha pilo ka", "Masta bhau, cha pilo ka"],
-"milk": ["Hoi re bhau, dudh pilo ka", "Ny re, dudh mast ahe", "Tu dudh pilo ka", "Bhau, dudh pilo ka", "Masta bhau, dudh pilo ka"],
-"bread": ["Hoi re bhau, bread ghalay ka", "Ny re, bread fresh ahe", "Tu bread ghalay ka", "Bhau, bread ghalay ka", "Masta bhau, bread ghalay ka"],
-"bhat": ["Hoi re bhau, bhat ghalay ka", "Ny re, bhat mast ahe", "Tu bhat ghalay ka", "Bhau, bhat ghalay ka", "Masta bhau, bhat ghalay ka"],
-"dal": ["Hoi re bhau, dal ghalay ka", "Ny re, dal garam ahe", "Tu dal ghalay ka", "Bhau, dal ghalay ka", "Masta bhau, dal ghalay ka"],
-"anda": ["Hoi re bhau, anda ghalay ka", "Ny re, anda mast ahe", "Tu anda ghalay ka", "Bhau, anda ghalay ka", "Masta bhau, anda ghalay ka"],
-"fish": ["Hoi re bhau, fish ghalay ka", "Ny re, fish fresh ahe", "Tu fish ghalay ka", "Bhau, fish ghalay ka", "Masta bhau, fish ghalay ka"],
-"chicken": ["Hoi re bhau, chicken ghalay ka", "Ny re, chicken mast ahe", "Tu chicken ghalay ka", "Bhau, chicken ghalay ka", "Masta bhau, chicken ghalay ka"],
-"samosa": ["Hoi re bhau, samosa ghalay ka", "Ny re, samosa garam ahe", "Tu samosa ghalay ka", "Bhau, samosa ghalay ka", "Masta bhau, samosa ghalay ka"],
-"jalebi": ["Hoi re bhau, jalebi ghalay ka", "Ny re, jalebi mast ahe", "Tu jalebi ghalay ka", "Bhau, jalebi ghalay ka", "Masta bhau, jalebi ghalay ka"],
-"ladoos": ["Hoi re bhau, ladoo ghalay ka", "Ny re, ladoo mast ahe", "Tu ladoo ghalay ka", "Bhau, ladoo ghalay ka", "Masta bhau, ladoo ghalay ka"],
-"kele": ["Hoi re bhau, kele ghalay ka", "Ny re, kele fresh ahet", "Tu kele ghalay ka", "Bhau, kele ghalay ka", "Masta bhau, kele ghalay ka"],
-"mango": ["Hoi re bhau, mango ghalay ka", "Ny re, mango mast ahe", "Tu mango ghalay ka", "Bhau, mango ghalay ka", "Masta bhau, mango ghalay ka"],
-"apple": ["Hoi re bhau, apple ghalay ka", "Ny re, apple fresh ahe", "Tu apple ghalay ka", "Bhau, apple ghalay ka", "Masta bhau, apple ghalay ka"],
-"puri": ["Hoi re bhau, puri ghalay ka", "Ny re, puri garam ahe", "Tu puri ghalay ka", "Bhau, puri ghalay ka", "Masta bhau, puri ghalay ka"],
-"poha": ["Hoi re bhau, poha ghalay ka", "Ny re, poha mast ahe", "Tu poha ghalay ka", "Bhau, poha ghalay ka", "Masta bhau, poha ghalay ka"],
-"upma": ["Hoi re bhau, upma ghalay ka", "Ny re, upma ready ahe", "Tu upma ghalay ka", "Bhau, upma ghalay ka", "Masta bhau, upma ghalay ka"],
-"idli": ["Hoi re bhau, idli ghalay ka", "Ny re, idli garam ahe", "Tu idli ghalay ka", "Bhau, idli ghalay ka", "Masta bhau, idli ghalay ka"],
-"vada": ["Hoi re bhau, vada ghalay ka", "Ny re, vada ready ahe", "Tu vada ghalay ka", "Bhau, vada ghalay ka", "Masta bhau, vada ghalay ka"],
-"dosa": ["Hoi re bhau, dosa ghalay ka", "Ny re, dosa garam ahe", "Tu dosa ghalay ka", "Bhau, dosa ghalay ka", "Masta bhau, dosa ghalay ka"],
-"sambar": ["Hoi re bhau, sambar ghalay ka", "Ny re, sambar ready ahe", "Tu sambar ghalay ka", "Bhau, sambar ghalay ka", "Masta bhau, sambar ghalay ka"],
-"curry": ["Hoi re bhau, curry ghalay ka", "Ny re, curry mast ahe", "Tu curry ghalay ka", "Bhau, curry ghalay ka", "Masta bhau, curry ghalay ka"],
-"kheer": ["Hoi re bhau, kheer ghalay ka", "Ny re, kheer ready ahe", "Tu kheer ghalay ka", "Bhau, kheer ghalay ka", "Masta bhau, kheer ghalay ka"],
-"puranpoli": ["Hoi re bhau, puranpoli ghalay ka", "Ny re, puranpoli mast ahe", "Tu puranpoli ghalay ka", "Bhau, puranpoli ghalay ka", "Masta bhau, puranpoli ghalay ka"],
-"icecream": ["Hoi re bhau, icecream ghalay ka", "Ny re, icecream ready ahe", "Tu icecream ghalay ka", "Bhau, icecream ghalay ka", "Masta bhau, icecream ghalay ka"],
-"cake": ["Hoi re bhau, cake ghalay ka", "Ny re, cake mast ahe", "Tu cake ghalay ka", "Bhau, cake ghalay ka", "Masta bhau, cake ghalay ka"],
-"chocolate": ["Hoi re bhau, chocolate ghalay ka", "Ny re, chocolate ready ahe", "Tu chocolate ghalay ka", "Bhau, chocolate ghalay ka", "Masta bhau, chocolate ghalay ka"],
-"cookies": ["Hoi re bhau, cookies ghalay ka", "Ny re, cookies mast ahet", "Tu cookies ghalay ka", "Bhau, cookies ghalay ka", "Masta bhau, cookies ghalay ka"],
-"juice": ["Hoi re bhau, juice pilo ka", "Ny re, juice ready ahe", "Tu juice pilo ka", "Bhau, juice pilo ka", "Masta bhau, juice pilo ka"],
-"chal": ["Hoi re bhau, chal ja", "Ny re, chal barobar ahe", "Tu chal ja", "Bhau, chal suru kar", "Masta bhau, chal ghalay"],
-"bhet": ["Hoi re bhau, bhet zai", "Ny re, bhet thik ahe", "Tu bhet zalay ka", "Bhau, bhet karay", "Masta bhau, bhet zai"],
-"kal": ["Hoi re bhau, kal bhetu", "Ny re, kal barobar ahe", "Tu kal yetos", "Bhau, kal plan ahe", "Masta bhau, kal bhetu"],
-"kam": ["Hoi re bhau, kam suru kar", "Ny re, kam thik ahe", "Tu kam karay", "Bhau, kam ahe", "Masta bhau, kam suru kar"],
-"game": ["Hoi re bhau, game khelu ka", "Ny re, game mast ahe", "Tu game khelu ka", "Bhau, game chalay", "Masta bhau, game khelu"],
-"ghor": ["Hoi re bhau, ghor bas", "Ny re, ghor barobar ahe", "Tu ghor zai", "Bhau, ghor suru kar", "Masta bhau, ghor bas"],
-"pahila": ["Hoi re bhau, pahila bagh", "Ny re, pahila barobar ahe", "Tu pahila pahila ka", "Bhau, pahila suru kar", "Masta bhau, pahila bagh"],
-"jal": ["Hoi re bhau, jal suru kar", "Ny re, jal mast ahe", "Tu jal bagh", "Bhau, jal chalay", "Masta bhau, jal suru kar"],
-"sang": ["Hoi re bhau, sang re", "Ny re, sang mast ahe", "Tu sang ka", "Bhau, sang suru kar", "Masta bhau, sang re"],
-"vhal": ["Hoi re bhau, vhal zai", "Ny re, vhal barobar ahe", "Tu vhal bagh", "Bhau, vhal chalay", "Masta bhau, vhal zai"],
-"chal": ["Hoi re bhau, chal ja", "Ny re, chal barobar ahe", "Tu chal ja", "Bhau, chal suru kar", "Masta bhau, chal ghalay"],
-"bhet": ["Hoi re bhau, bhet zai", "Ny re, bhet thik ahe", "Tu bhet zalay ka", "Bhau, bhet karay", "Masta bhau, bhet zai"],
-"kal": ["Hoi re bhau, kal bhetu", "Ny re, kal barobar ahe", "Tu kal yetos", "Bhau, kal plan ahe", "Masta bhau, kal bhetu"],
-"kam": ["Hoi re bhau, kam suru kar", "Ny re, kam thik ahe", "Tu kam karay", "Bhau, kam ahe", "Masta bhau, kam suru kar"],
-"game": ["Hoi re bhau, game khelu ka", "Ny re, game mast ahe", "Tu game khelu ka", "Bhau, game chalay", "Masta bhau, game khelu"],
-"ghor": ["Hoi re bhau, ghor bas", "Ny re, ghor barobar ahe", "Tu ghor zai", "Bhau, ghor suru kar", "Masta bhau, ghor bas"],
-"pahila": ["Hoi re bhau, pahila bagh", "Ny re, pahila barobar ahe", "Tu pahila pahila ka", "Bhau, pahila suru kar", "Masta bhau, pahila bagh"],
-"jal": ["Hoi re bhau, jal suru kar", "Ny re, jal mast ahe", "Tu jal bagh", "Bhau, jal chalay", "Masta bhau, jal suru kar"],
-"sang": ["Hoi re bhau, sang re", "Ny re, sang mast ahe", "Tu sang ka", "Bhau, sang suru kar", "Masta bhau, sang re"],
-"vhal": ["Hoi re bhau, vhal zai", "Ny re, vhal barobar ahe", "Tu vhal bagh", "Bhau, vhal chalay", "Masta bhau, vhal zai"],
-"ghat": ["Hoi re bhau, ghat chal", "Ny re, ghat barobar ahe", "Tu ghat yetos", "Bhau, ghat suru kar", "Masta bhau, ghat chal"],
-"bazaar": ["Hoi re bhau, bazaar jatoy", "Ny re, bazaar mast ahe", "Tu bazaar zalay ka", "Bhau, bazaar chalay", "Masta bhau, bazaar jatoy"],
-"kaam": ["Hoi re bhau, kaam suru kar", "Ny re, kaam mast ahe", "Tu kaam karay", "Bhau, kaam chalay", "Masta bhau, kaam suru kar"],
-"paayla": ["Hoi re bhau, paayla zai", "Ny re, paayla barobar ahe", "Tu paayla yetos", "Bhau, paayla suru kar", "Masta bhau, paayla zai"],
-"ghya": ["Hoi re bhau, ghya re", "Ny re, ghya mast ahe", "Tu ghya ka", "Bhau, ghya suru kar", "Masta bhau, ghya re"],
-"vat": ["Hoi re bhau, vat thik ahe", "Ny re, vat mast ahe", "Tu vat bagh", "Bhau, vat chalay", "Masta bhau, vat thik ahe"],
-"pani": ["Hoi re bhau, pani bhara", "Ny re, pani mast ahe", "Tu pani ghetos ka", "Bhau, pani suru kar", "Masta bhau, pani bhara"],
-"ghoos": ["Hoi re bhau, ghoos kar", "Ny re, ghoos barobar ahe", "Tu ghoos yetos ka", "Bhau, ghoos suru kar", "Masta bhau, ghoos kar"],
-"naka": ["Hoi re bhau, naka bagh", "Ny re, naka mast ahe", "Tu naka yetos ka", "Bhau, naka suru kar", "Masta bhau, naka bagh"],
-"paay": ["Hoi re bhau, paay bagh", "Ny re, paay mast ahe", "Tu paay yetos ka", "Bhau, paay suru kar", "Masta bhau, paay bagh"],
-"masto": ["Hoi re bhau, mast ahe", "Ny re, mast chalay", "Tu mast bagh", "Bhau, mast suru kar", "Masta bhau, mast ahe"],
-"thik": ["Hoi re bhau, thik ahe", "Ny re, thik barobar ahe", "Tu thik bagh", "Bhau, thik suru kar", "Masta bhau, thik ahe"],
-"majha": ["Hoi re bhau, majha mast", "Ny re, majha barobar", "Tu majha bagh", "Bhau, majha suru kar", "Masta bhau, majha mast"],
-"bhari": ["Hoi re bhau, bhari chalay", "Ny re, bhari mast ahe", "Tu bhari yetos ka", "Bhau, bhari suru kar", "Masta bhau, bhari chalay"],
-"bapu": ["Hoi re bhau, bapu ahe", "Ny re, bapu barobar ahe", "Tu bapu bagh", "Bhau, bapu suru kar", "Masta bhau, bapu ahe"],
-"nakaay": ["Hoi re bhau, nakaay chalay", "Ny re, nakaay barobar ahe", "Tu nakaay yetos ka", "Bhau, nakaay suru kar", "Masta bhau, nakaay chalay"],
-"galli": ["Hoi re bhau, galli yetos", "Ny re, galli mast ahe", "Tu galli bagh", "Bhau, galli suru kar", "Masta bhau, galli yetos"],
-"pankha": ["Hoi re bhau, pankha chalay", "Ny re, pankha barobar ahe", "Tu pankha yetos ka", "Bhau, pankha suru kar", "Masta bhau, pankha chalay"],
-"khidki": ["Hoi re bhau, khidki bagh", "Ny re, khidki mast ahe", "Tu khidki yetos ka", "Bhau, khidki suru kar", "Masta bhau, khidki bagh"],
-"pustak": ["Hoi re bhau, pustak bagh", "Ny re, pustak mast ahe", "Tu pustak yetos ka", "Bhau, pustak suru kar", "Masta bhau, pustak bagh"],
-"khidki": ["Hoi re bhau, khidki bagh", "Ny re, khidki mast ahe", "Tu khidki yetos ka", "Bhau, khidki suru kar", "Masta bhau, khidki bagh"],
-"talav": ["Hoi re bhau, talav bagh", "Ny re, talav mast ahe", "Tu talav yetos ka", "Bhau, talav suru kar", "Masta bhau, talav bagh"],
-"ghar": ["Hoi re bhau, ghar bagh", "Ny re, ghar mast ahe", "Tu ghar yetos ka", "Bhau, ghar suru kar", "Masta bhau, ghar bagh"],
-"bai": ["Hoi re bhau, bai mast ahe", "Ny re, bai barobar ahe", "Tu bai bagh", "Bhau, bai suru kar", "Masta bhau, bai mast ahe"],
-"mala": ["Hoi re bhau, mala vat ahe", "Ny re, mala mast ahe", "Tu mala bagh", "Bhau, mala suru kar", "Masta bhau, mala vat ahe"],
-"tula": ["Hoi re bhau, tula vat ahe", "Ny re, tula mast ahe", "Tu tula bagh", "Bhau, tula suru kar", "Masta bhau, tula vat ahe"],
-"tu": ["Hoi re bhau, tu mast aahes", "Ny re, tu barobar aahes", "Tu bagh", "Bhau, tu suru kar", "Masta bhau, tu mast aahes"],
-"mi": ["Hoi re bhau, mi mast aahes", "Ny re, mi barobar aahes", "Mi bagh", "Bhau, mi suru kar", "Masta bhau, mi mast aahes"],
-"apan": ["Hoi re bhau, apan mast aahot", "Ny re, apan barobar aahot", "Apan bagh", "Bhau, apan suru kar", "Masta bhau, apan mast aahot"],
-"sagle": ["Hoi re bhau, sagle thik ahet", "Ny re, sagle barobar ahet", "Tu sagle bagh", "Bhau, sagle suru kar", "Masta bhau, sagle thik ahet"],
-"kon": ["Hoi re bhau, kon yetos", "Ny re, kon mast ahe", "Tu kon bagh", "Bhau, kon suru kar", "Masta bhau, kon yetos"],
-"kuthlya": ["Hoi re bhau, kuthlya mast ahe", "Ny re, kuthlya barobar ahe", "Tu kuthlya bagh", "Bhau, kuthlya suru kar", "Masta bhau, kuthlya mast ahe"],
-"kay": ["Hoi re bhau, kay chalay", "Ny re, kay barobar ahe", "Tu kay bagh", "Bhau, kay suru kar", "Masta bhau, kay chalay"],
-"acha": ["Hoi re bhau, acha barobar", "Ny re, acha mast ahe", "Tu acha bagh", "Bhau, acha suru kar", "Masta bhau, acha barobar"],
-"ho": ["Hoi re bhau, ho mast", "Ny re, ho barobar ahe", "Tu ho bagh", "Bhau, ho suru kar", "Masta bhau, ho mast"],
-"are": ["Hoi re bhau, are mast", "Ny re, are barobar ahe", "Tu are bagh", "Bhau, are suru kar", "Masta bhau, are mast"],
-"oii": ["Hoi re bhau, oii mast", "Ny re, oii barobar ahe", "Tu oii bagh", "Bhau, oii suru kar", "Masta bhau, oii mast"],
-"vala": ["Hoi re bhau, vala mast", "Ny re, vala barobar ahe", "Tu vala bagh", "Bhau, vala suru kar", "Masta bhau, vala mast"],
-"jamala": ["Hoi re bhau, jamala mast", "Ny re, jamala barobar ahe", "Tu jamala bagh", "Bhau, jamala suru kar", "Masta bhau, jamala mast"],
-"didit": ["Hoi re bhau, ho zala", "Ny re, ho barobar ahe", "Tu bagh zala ka", "Bhau, ho suru kar", "Masta bhau, ho zala"],
+
+  "Hi": [
+    "Hi! Kaso aasay bhai 😄",
+    "Hello! Kay mhantoy 🤗",
+    "Hi there! Changala aahes ka 😎",
+    "Ky baki mhanty 😎"
+  ],
+  "Hello": [
+    "Hello! Kaso aahes 😄",
+    "Hello! Masto aahes ka 😃"
+  ],
+  "Bye": [
+    "Chal tr! Pudhe boluya 👋",
+    "Bye! Pure zala chal tr 😅"
+  ],
+  "Tu sang": [
+    "Me ky saangu baba tuch snag ky ta 😅",
+    "Baro aasy ky mhanty"
+  ],
+  "Ky mhanty": [
+    "Aassy jito tiyach sang ky ta sang",
+    "Ky mhantaly baba"
+  ],
+  "Kaso assay": [
+    "Ky saangu baba",
+    "Baro aasy ky mhanty"
+  ],
+  "Sang ky tari": [
+    "Melo hyo mazya patsunach laglo",
+    "Baro ma tu"
+  ],
+  "Baro ma": [
+    "Aasy jito khup zala baro ky hoyo 👋",
+    "Hoi re bab 😅"
+  ],
+  "Zala ka": [
+    "Zalo re bhau tuch kasa",
+    "Hoi zale mhantat",
+    "Pura zale bhau",
+    "Khoop zale mhanto",
+    "Ho re tuka kay"
+  ],
+  "Kuthay ahes": [
+    "Mi ghari asaay re",
+    "Ya bazarat asaay mi",
+    "Office madhye ata",
+    "Gaonat jhalo bhau",
+    "Ghari baslo net vaparta"
+  ],
+  "Kay kartoy": [
+    "Aisach baslo re",
+    "Mobail vaparta 😅",
+    "Net surfing karto",
+    "Ghari relax karto",
+    "Kuthecha special na asaach"
+  ],
+  "Khoop divas zale": [
+    "Hoi re khoop divas zale bhetlo na",
+    "Ya na bhau meeting kara ek",
+    "Khara mhanty time nighalaach na",
+    "Mala pan vatla tuka sangava",
+    "Bhetuchya planning kara"
+  ],
+  "Khau kay": [
+    "Vadapav khaun zale 😋",
+    "Misal pav mast hoti",
+    "Chaha baslo ata",
+    "Fish curry rice khata",
+    "Shebachi poli khata"
+  ],
+  "Pahila ka": [
+    "Hoi re pahilo ata",
+    "Nako re ajun pahilo na",
+    "Pahinyacha plan ahe",
+    "Ajun kay tari baki ahe",
+    "Mi pahilo re kal"
+  ],
+  "Ghar kay zala": [
+    "Gharat sarva mast ahet",
+    "Barobar mhanty kuthech problem na",
+    "Aai-baba chan ahet",
+    "Bai khup mast mood madhe",
+    "Gharacha vatavaran chan ahe"
+  ],
+  "Vale": [
+    "Vale bhau 👋",
+    "Chala pudhe boluya",
+    "Mala ata nighaycha",
+    "Bye re mhantat",
+    "Mi off karto vale"
+  ],
+  "Bhetuya": [
+    "Ya na kal paryant",
+    "Thik ahe udya bhetuya",
+    "Bhetuchya planning kara",
+    "Kiti divas zale bhetuya re",
+    "Mala pan vatla bhetaych"
+  ],
+  "Thik ahe": [
+    "Mast re thik ahe",
+    "Barobar mhanty",
+    "Mala pan thik vatata",
+    "Chan mood ahe ata",
+    "Ho re thik ahe"
+  ],
+  "Sang na": [
+    "Kai special sangaych ka",
+    "Mhant mhant mhant sang",
+    "Kay secret aahe ka",
+    "Me aiku re sang",
+    "Jaldi sang re"
+  ],
+  "Kitem zata": [
+    "Kai khas na asaach",
+    "Aisach timepass",
+    "Kaam hota thoda",
+    "Mala tar relax vatata",
+    "Mala boredom vatata"
+  ],
+  "Oy": [
+    "Oy bhau Kay mhantoy",
+    "Oy re kasa aahes",
+    "Oy mhanto mhanto kiti vela",
+    "Oy chal bhetuya",
+    "Oy kay zala"
+  ],
+  "Kay zala": [
+    "Kai nahi re asaach",
+    "Aisach tension",
+    "Jhakaas vatata",
+    "Kay tari problem ahe",
+    "Barobar jhalay"
+  ],
+  "Chal na": [
+    "Ya re plan karuya",
+    "Kiti divas zale ya na",
+    "Chal bhetuya bazarat",
+    "Mala pan yavyach vatata",
+    "Chal re movie la jau"
+  ],
+  "Maka jamna": [
+    "Jamta re bhau",
+    "Mala jamna khoop chan vatata",
+    "Jamaych plan kara",
+    "Jamlo tar mast hoil",
+    "Jamayla maza yeil"
+  ],
+  "Udya ky tr": [
+    "Udya bhetuya re",
+    "Udya call karu",
+    "Udya jamu ka",
+    "Udya special ahe",
+    "Udya sangto"
+  ],
+  "Jamla ma": [
+    "Jamla re mast",
+    "Jamla bhau",
+    "Jamla barobar",
+    "Jamayla maja aali",
+    "Jamlo tari mast"
+  ],
+  "Mala vatla": [
+    "Mala tari asa vatla",
+    "Mala vatla tuka sangaych",
+    "Mala vatla ki tu sangto",
+    "Mala vatla khara mhanty",
+    "Mala vatla bhau"
+  ],
+  "Kuthe": [
+    "Kuthe gelo re",
+    "Kuthe ahes tu",
+    "Kuthe bhettoy",
+    "Kuthe zala hotas",
+    "Kuthe plan kartoy"
+  ],
+  "Masta": [
+    "Masta re bhau",
+    "Mala mast vatata",
+    "Masta ahe situation",
+    "Masta plan vatata",
+    "Masta mood ahe"
+  ],
+  "Khoop chan": [
+    "Hoi re khup chan ahe",
+    "Chan vatata bhau",
+    "Khoop chan mhanto tu",
+    "Mala pan chan vatata",
+    "Chan khup jhalay"
+  ],
+  "Ha": [
+    "Ha re barobar",
+    "Ha mhanto tu",
+    "Ha mhantla re",
+    "Ho ho barobar",
+    "Ha ahe"
+  ],
+  "Nai": [
+    "Nai re mhanto",
+    "Nai mhanto mi",
+    "Nai tari barobar",
+    "Nai mhantat sagle",
+    "Nai nai asa kay"
+  ],
+  "Yes": [
+    "Yes bhau",
+    "Yes re barobar",
+    "Yes mhanto",
+    "Yes mhantla mi",
+    "Yes barobar"
+  ],
+  "No": [
+    "No re mhanto",
+    "No mhantla mi",
+    "No nai barobar",
+    "No mhantat sagle",
+    "No mhanto mi"
+  ],
+  "Acha kay": [
+    "Acha kay mhanto tu",
+    "Acha kay vatla",
+    "Acha kay mhantat",
+    "Acha kay re",
+    "Acha kay jhala"
+  ],
+  "Thoda": [
+    "Thoda jhala re",
+    "Thoda kam urla",
+    "Thoda thamb",
+    "Thoda jamaycha ahe",
+    "Thoda relax karto"
+  ],
+  "Mala na": [
+    "Mala na asa vatla",
+    "Mala na kay tari mhanaych",
+    "Mala na sangaych hota",
+    "Mala na jamtoy",
+    "Mala na bhau"
+  ],
+  "Aaj": [
+    "Aaj khup maja aali",
+    "Aaj movie baghtoy",
+    "Aaj special ahe",
+    "Aaj jamaycha plan",
+    "Aaj ghari baslo"
+  ],
+  "Udya": [
+    "Udya jamel ka",
+    "Udya bhetuya",
+    "Udya plan ahe",
+    "Udya mast hoil",
+    "Udya sangto"
+  ],
+  "Bas": [
+    "Bas re bhau",
+    "Bas mhanto",
+    "Bas ata kay",
+    "Bas jhalay",
+    "Bas thoda"
+  ],
+  "Chala": [
+    "Chala re jamuya",
+    "Chala movie la",
+    "Chala ghari",
+    "Chala khayla",
+    "Chala bazarat"
+  ],
+  "Jamaya": [
+    "Jamaycha plan kara",
+    "Jamaycha hota",
+    "Jamaycha urla",
+    "Jamaycha mast vatata",
+    "Jamaycha khoop"
+  ],
+  "Karu": [
+    "Karu re bhau",
+    "Karu na plan",
+    "Karu movie baghu",
+    "Karu bhet",
+    "Karu ka game"
+  ],
+  "Kar": [
+    "Kar re ata",
+    "Kar mhantla mi",
+    "Kar mhanto tu",
+    "Kar barobar",
+    "Kar jamtoy"
+  ],
+  "Mala": [
+    "Mala tari baro vatata",
+    "Mala asa vatla",
+    "Mala maja aali",
+    "Mala tension ahe",
+    "Mala khau pahije"
+  ],
+  "Tula": [
+    "Tula asa vatata ka",
+    "Tula jamtoy ka",
+    "Tula maja aali ka",
+    "Tula baro vatata ka",
+    "Tula khau pahije ka"
+  ],
+  "Tu": [
+    "Tu kasa ahes",
+    "Tu kay mhantoy",
+    "Tu kuthe ahes",
+    "Tu bhettoy ka",
+    "Tu kay karto"
+  ],
+  "Mi": [
+    "Mi baro asaay",
+    "Mi asa vatato",
+    "Mi asa karto",
+    "Mi asa mhanto",
+    "Mi game kheltoy"
+  ],
+  "Apan": [
+    "Apan jamuya",
+    "Apan movie baghu",
+    "Apan game khelaya",
+    "Apan ghari basu",
+    "Apan bazarat jau"
+  ],
+  "Sagle": [
+    "Sagle baro ahet",
+    "Sagle jamtoy",
+    "Sagle mast hota",
+    "Sagle barobar",
+    "Sagle maja kartoy"
+  ],
+  "Kon": [
+    "Kon hota to",
+    "Kon mhantla",
+    "Kon jhala re",
+    "Kon bhettoy",
+    "Kon barobar hota"
+  ],
+  "Kuthlya": [
+    "Kuthla plan",
+    "Kuthla game",
+    "Kuthla movie",
+    "Kuthla khau",
+    "Kuthla mood"
+  ],
+  "Kay": [
+    "Kay re bhau",
+    "Kay mhanto tu",
+    "Kay jhala",
+    "Kay zala re",
+    "Kay vatata"
+  ],
+  "Acha re": [
+    "Acha re bhau",
+    "Acha re barobar",
+    "Acha re mhanty",
+    "Acha re vatata",
+    "Acha re jhala"
+  ],
+  "Ho": [
+    "Ho re bhau",
+    "Ho mhanto mi",
+    "Ho barobar",
+    "Ho ho mast",
+    "Ho jhala"
+  ],
+  "Are": [
+    "Are bhau",
+    "Are mast vatata",
+    "Are barobar",
+    "Are kay re",
+    "Are mhanty"
+  ],
+  "Oii": [
+    "Oy re bhau",
+    "Oy re kay mhanty",
+    "Oy re mast",
+    "Oy re barobar",
+    "Oy re vatata"
+  ],
+  "Vala": [
+    "Vala re bhau",
+    "Vala mhanto",
+    "Vala barobar",
+    "Vala vatata",
+    "Vala mast"
+  ],
+  "Jamala": [
+    "Jamala re mast",
+    "Jamala hota",
+    "Jamala barobar",
+    "Jamala vatata",
+    "Jamala jhala"
+  ],
+  "Did it happen yet": [
+    "Ajun zala nahi",
+    "Ajun kay tari baki",
+    "Ajun jamtoy",
+    "Ajun bhetlo nahi",
+    "Ajun chaltoy"
+  ],
+  "Did you eat yesterday": [
+    "Hoi baba jeyly",
+    "Nahi re",
+    "Kal movie baghitle",
+    "Kal mast hota",
+    "Kal special hota"
+  ],
+  "Did you enjoy today": [
+    "Aaj khup maja aali",
+    "Aaj special ahe",
+    "Aaj jamaycha plan",
+    "Aaj movie baghtoy",
+    "Aaj ghari baslo"
+  ],
+  "Shall we meet tomorrow": [
+    "Udya jamacha nai",
+    "Udya bhetuya",
+    "Udya plan ahe",
+    "Udya mast hoil",
+    "Udya sangto"
+  ],
+  "Should we stop now": [
+    "Bas re bhau",
+    "Bas mhanto",
+    "Bas ata kay",
+    "Bas jhalay",
+    "Bas thoda"
+  ],
+  "Shall we go": [
+    "Chala re jamuya",
+    "Chala movie la",
+    "Chala ghari",
+    "Chala khayla",
+    "Chala bazarat"
+  ],
+  "Shall we plan to party": [
+    "Jamaycha plan kara",
+    "Jamaycha hota",
+    "Jamaycha urla",
+    "Jamaycha mast vatata",
+    "Jamaycha khoop"
+  ],
+  "Shall we do it": [
+    "Karu re bhau",
+    "Karu na plan",
+    "Karu movie baghu",
+    "Karu bhet",
+    "Karu ka game"
+  ],
+  "Do it now": [
+    "Kar re ata",
+    "Kar mhantla mi",
+    "Kar mhanto tu",
+    "Kar barobar",
+    "Kar jamtoy"
+  ],
+  "How do I feel": [
+    "Mala tari baro vatata",
+    "Mala asa vatla",
+    "Mala maja aali",
+    "Mala tension ahe",
+    "Mala khau pahije"
+  ],
+  "Ganpatik ye re": [
+    "Me kaso yev baba me bot",
+    "Ky maskari kartoy me kaso yev me manus thodi asy",
+    "Bhari vatata sangly ta"
+  ],
+  "Kay lavdya": [
+    "Gali detos madharchod"
+  ],
+  "Lavdya": [
+    "Gali detos madharchod"
+  ],
+  "Bc": [
+    "Gali detos bhikarchota"
+  ],
+  "suru kar": [
+  "Hoi re bhau, suru kar", "Ny re, suru kar mast ahe",
+  "Tu suru kar bagh", "Bhau, suru kar", "Masta bhau, suru kar"
+],
+"tula": [
+  "Hoi re bhau, tula vat ahe", "Ny re, tula mast ahe",
+  "Tu tula bagh", "Bhau, tula suru kar", "Masta bhau, tula vat ahe"
+],
+"tu": [
+  "Hoi re bhau, tu mast aahes", "Ny re, tu barobar aahes",
+  "Tu bagh", "Bhau, tu suru kar", "Masta bhau, tu mast aahes"
+],
+"mi": [
+  "Hoi re bhau, mi mast aahes", "Ny re, mi barobar aahes",
+  "Mi bagh", "Bhau, mi suru kar", "Masta bhau, mi mast aahes"
+],
+"apan": [
+  "Hoi re bhau, apan mast aahot", "Ny re, apan barobar aahot",
+  "Apan bagh", "Bhau, apan suru kar", "Masta bhau, apan mast aahot"
+],
+"sagle": [
+  "Hoi re bhau, sagle thik ahet", "Ny re, sagle barobar ahet",
+  "Tu sagle bagh", "Bhau, sagle suru kar", "Masta bhau, sagle thik ahet"
+],
+"kon": [
+  "Hoi re bhau, kon yetos", "Ny re, kon mast ahe",
+  "Tu kon bagh", "Bhau, kon suru kar", "Masta bhau, kon yetos"
+],
+"kuthlya": [
+  "Hoi re bhau, kuthlya mast ahe", "Ny re, kuthlya barobar ahe",
+  "Tu kuthlya bagh", "Bhau, kuthlya suru kar", "Masta bhau, kuthlya mast ahe"
+],
+"kay": [
+  "Hoi re bhau, kay chalay", "Ny re, kay barobar ahe",
+  "Tu kay bagh", "Bhau, kay suru kar", "Masta bhau, kay chalay"
+],
+"acha": [
+  "Hoi re bhau, acha barobar", "Ny re, acha mast ahe",
+  "Tu acha bagh", "Bhau, acha suru kar", "Masta bhau, acha barobar"
+],
+"ho": [
+  "Hoi re bhau, ho mast", "Ny re, ho barobar ahe",
+  "Tu ho bagh", "Bhau, ho suru kar", "Masta bhau, ho mast"
+],
+"are": [
+  "Hoi re bhau, are mast", "Ny re, are barobar ahe",
+  "Tu are bagh", "Bhau, are suru kar", "Masta bhau, are mast"
+],
+"oii": [
+  "Hoi re bhau, oii mast", "Ny re, oii barobar ahe",
+  "Tu oii bagh", "Bhau, oii suru kar", "Masta bhau, oii mast"
+],
+
+"jamala": [
+  "Hoi re bhau, jamala mast", "Ny re, jamala barobar ahe",
+  "Tu jamala bagh", "Bhau, jamala suru kar", "Masta bhau, jamala mast"
+],
+  
 };
 
 // Function to add messages in chat
@@ -264,17 +557,19 @@ function addMessage(sender, text) {
 function getBotReply(userText) {
   const text = userText.trim().toLowerCase();
 
-  // Try to find matching key
+  // Try to find matching key (even if it's part of the sentence)
   for (let key in botReplies) {
-    if (text === key.toLowerCase()) {
+    if (text.includes(key.toLowerCase())) {
       const replies = botReplies[key];
       return replies[Math.floor(Math.random() * replies.length)];
     }
   }
 
   // If no match found
-  return "Kay mhantoy bhau? 🤔";
+  return "Kay mhantoy bhau ta maka samjak ny maka yeta tach vicha? 🤔";
 }
+
+
 
 // Send message
 function sendMessage() {
